@@ -1,0 +1,7 @@
+.venv\scripts\activate  
+pip install Django
+django-admin startproject Topic10
+cd Topic10  
+
+python manage.py startapp dj01_creating_project
+python manage.py runserver

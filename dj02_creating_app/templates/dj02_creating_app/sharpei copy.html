@@ -1,0 +1,18 @@
+{% extends 'dj02_creating_app/layout.html' %}
+
+{% block title %}
+<title>Шарпей</title>
+{% endblock %}
+{% load static %}
+{% block content %}
+<div class="card">
+    <img src="{% static 'dj02_creating_app/img/sharpei.jpg' %}" class="card-img-top" alt="Шарпей">
+    <img src="{% static 'dj02_creating_app/img/dog.jpg' %}" alt="щенок" class="img-fluid mb-3 rounded-circle">
+              
+    <div class="card-body">
+        <h2 class="card-title">Шарпей</h2>
+        <p class="card-text">Шарпей — это уникальная порода с характерным синим языком.</p>
+        <p class="card-text">Они независимы и могут быть строптивыми, но весьма преданны своим владельцам.</p>
+    </div>
+</div>
+{% endblock %}
