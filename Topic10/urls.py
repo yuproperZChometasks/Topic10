@@ -18,17 +18,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-"""
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dj01/', include('dj01_creating_app.urls')),
     path('dj02/', include('dj02_creating_app.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-"""
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('dj01/', include('dj01_creating_app.urls')),
-    path('dj02/', include('dj02_creating_app.urls')),
+    path('dj03/', include('dj03_models_news.urls')),
+    path('dj04/', include('dj04_forms.urls')),
 ]
 if settings.DEBUG:  # Включаем статические файлы только в режиме отладки
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+

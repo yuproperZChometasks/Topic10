@@ -1,0 +1,46 @@
+<!-- news.html -->
+{% extends 'dj04_forms/layout.html' %}
+
+{% block title %}
+	<title>Новостная страница</title>
+{% endblock %}
+
+{% block content %}
+<h1>Новостная страница</h1>
+	    {% if news %}
+        {% for new in news %}
+          <div class="card">
+            <div class="card" style="width: 30rem;">
+              <div class="card-body">
+                   
+                        <h3 class="card-title">{{ new.title }}</h3>
+                        <p class="card-text">{{ new.posted_news_name }}</p>
+                        <p class="card-text">{{ new.short_description }}</p>
+                        
+                        <p id="text-{{ new.id }}">{{ new.text|slice:":210" }}...</p>  <!-- Изначально показываем обрезанный текст -->
+                        
+                        <button id="toggle-button-{{ new.id }}" onclick="toggleText('{{ new.id }}', '{{ new.text|escapejs }}')">Показать полностью</button>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+            <h4>Новостей ещё нет.</h4>
+      {% endif %}
+
+<script>
+function toggleText(id, fullText) {
+    const textElement = document.getElementById('text-' + id);
+    const buttonElement = document.getElementById('toggle-button-' + id);
+    
+    if (textElement.innerText.endsWith('...')) {
+        textElement.innerText = fullText; // Заменяем на полный текст
+        buttonElement.innerText = 'Урезанный текст'; // Меняем текст кнопки
+    } else {
+        textElement.innerText = fullText.slice(0, 210) + '...'; // Возвращаем обрезанный текст
+        buttonElement.innerText = 'Показать полностью'; // Меняем текст кнопки обратно
+    }
+}
+</script>
+
+{% endblock %}

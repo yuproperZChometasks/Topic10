@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'dj03_models_news/css/dj03_models_news/style.css' %}">
+    {% block title %}
+    <title>Новостная страница</title>
+    {% endblock %}
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-md-3 bg-light p-4">
+                <img src="{% static 'dj02_creating_app/img/dog.jpg' %}" alt="щенок" class="img-fluid mb-3 rounded-circle">
+                <h2 class="text-center">Новостной сайт</h2>
+                {% include 'dj03_models_news/_nav.html' %}
+            </aside>
+            <main class="col-md-9 p-4">
+                {% block content %}
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">Welcome to NewsSite</h1>
+                        <p class="card-text">Your content goes here. Feel free to explore and enjoy!</p>
+                    </div>
+                </div>
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+
+    {% include 'dj03_models_news/_footer.html' %} <!-- Включение футера -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

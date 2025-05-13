@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dj01_creating_app',
     'dj02_creating_app',
+    'dj03_models_news',
+    'dj04_forms',
 ]
 
 MIDDLEWARE = [
@@ -104,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -123,6 +125,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
        BASE_DIR / "dj01_creating_app/static",
        BASE_DIR / "dj02_creating_app/static",
+       BASE_DIR / "dj03_models_news/static",
+       BASE_DIR / "dj04_forms/static",
 ]
 
 # Default primary key field type

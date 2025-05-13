@@ -1,0 +1,23 @@
+<!-- news.html -->
+{% extends 'dj03_models_news/layout.html' %}
+
+{% block title %}
+	<title>Новостная страница</title>
+{% endblock %}
+
+{% block content %}
+<h1>Новостная страница</h1>
+
+{% for new in news %}
+	<div>
+		<h3> {{ new.title }} </h3>
+		<p> {{ new.posted_news_name }} </p>
+		<p> {{ new.short_description }} </p>
+		<p> {{ new.text|slice:":210" }}...</p>  <!-- Ограничиваем вывод 210 символами и добавляем многоточие -->
+    	<button onclick="document.getElementById('full-text-{{ new.id }}').style.display='block'">Показать полностью</button>
+    	<p id="full-text-{{ new.id }}" style="display:none;">{{ new.text }}</p>
+
+	</div>
+{% endfor %}
+
+{% endblock %}

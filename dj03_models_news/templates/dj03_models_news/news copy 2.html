@@ -1,0 +1,38 @@
+<!-- news.html -->
+{% extends 'dj03_models_news/layout.html' %}
+
+{% block title %}
+	<title>Новостная страница</title>
+{% endblock %}
+
+{% block content %}
+<h1>Новостная страница</h1>
+
+{% for new in news %}
+  <div>
+    <h3>{{ new.title }}</h3>
+    <p>{{ new.posted_news_name }}</p>
+    <p>{{ new.short_description }}</p>
+
+    <p class="news-text" id="text-{{ new.id }}">{{ new.text|slice:":210" }}...</p> <!-- Обрезанный текст -->
+    <button onclick="toggleText({{ new.id }})">Показать полностью</button> <!-- Кнопка для переключения текста -->
+ 
+  </div>
+{% endfor %}
+
+<script>
+  function toggleText(id) {
+    const shortTextElement = document.getElementById('text-' + id);
+    const fullText = "{{ new.text|escapejs }}"; // Получаем полный текст с экранированием
+
+    if (shortTextElement.innerHTML.endsWith('...')) {
+      // Если сейчас отображается обрезанный текст, заменяем его на полный
+      shortTextElement.innerHTML = fullText;
+    } else {
+      // Если отображается полный текст, возвращаем обратно обрезанный
+      shortTextElement.innerHTML = fullText.slice(0, 210) + '...';
+    }
+  }
+</script>
+
+{% endblock %}
